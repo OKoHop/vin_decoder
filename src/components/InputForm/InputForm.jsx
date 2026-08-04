@@ -1,5 +1,6 @@
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import ValidationSchema from './validationSchema';
+import getVinData from './getData';
 
 export const InputForm = () => {
   return (
@@ -8,18 +9,15 @@ export const InputForm = () => {
         initialValues={{ vinCode: '' }}
         validationSchema={ValidationSchema}
         onSubmit={values => {
-          console.log(JSON.stringify(values));
+          getVinData(JSON.stringify(values.vinCode));
+          console.log(getVinData(JSON.stringify(values.vinCode)));
         }}
       >
-        {({ errors, touched }) => (
-          <Form>
-            <Field id="vinCode" name="vinCode" placeholder="Enter VIN code" />
-            {errors.vinCode && touched.vinCode ? (
-              <div>{errors.vinCode}</div>
-            ) : null}
-            <button type="submit">Check VIN</button>
-          </Form>
-        )}
+        <Form>
+          <Field id="vinCode" name="vinCode" placeholder="Enter VIN code" />
+          <ErrorMessage name="vinCode" />
+          <button type="submit">Check VIN</button>
+        </Form>
       </Formik>
     </>
   );

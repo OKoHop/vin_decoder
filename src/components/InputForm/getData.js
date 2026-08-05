@@ -4,7 +4,6 @@ axios.defaults.baseURL = 'https://vpic.nhtsa.dot.gov/api';
 
 const getVinData = async vinCode => {
   try {
-    console.log(vinCode);
     const response = await axios.get(
       `/vehicles/decodevin/${vinCode}?format=json`
     );

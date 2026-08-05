@@ -8,9 +8,9 @@ export const InputForm = () => {
       <Formik
         initialValues={{ vinCode: '' }}
         validationSchema={ValidationSchema}
-        onSubmit={values => {
-          getVinData(JSON.stringify(values.vinCode));
-          console.log(getVinData(JSON.stringify(values.vinCode)));
+        onSubmit={({ vinCode }) => {
+          getVinData(JSON.stringify(vinCode));
+          console.log(getVinData(JSON.stringify(vinCode)));
         }}
       >
         <Form>

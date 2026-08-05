@@ -8,7 +8,7 @@ const getVinData = async vinCode => {
     const response = await axios.get(
       `/vehicles/decodevin/${vinCode}?format=json`
     );
-    return response;
+    return response.data;
   } catch (err) {
     console.log(err);
   }

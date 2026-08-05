@@ -3,17 +3,20 @@ import { InputForm } from '../../components/InputForm/InputForm';
 import { Message } from '../../components/Message/Message';
 import { ListOfLastResults } from '../../components/ListOfLastResults/ListOfLastResults';
 import getVinData from '../../components/InputForm/getData';
+import { ListOfChatacters } from '../../components/ListOfCharecters/ListOfChatacters';
 
 export const Home = () => {
   const [message, setMessage] = useState('');
   const [lastResult, setLastResult] = useState([]);
+  const [result, setResult] = useState([]);
 
   const addVinCode = newVinCode => {
     setLastResult(prevstate => [newVinCode, ...prevstate]);
   };
 
-  const updateResult = vinCode => {
-    getVinData(vinCode);
+  const updateResult = async vinCode => {
+    const data = await getVinData(vinCode);
+    console.log(data);
     setLastResult(prevstate => [vinCode, ...prevstate]);
   };
 
@@ -22,12 +25,17 @@ export const Home = () => {
   return (
     <>
       <h2>Enter VIN Code</h2>
-      <InputForm setMessage={setMessage} addVinCode={addVinCode} />
+      <InputForm
+        setMessage={setMessage}
+        addVinCode={addVinCode}
+        setResult={setResult}
+      />
       <Message message={message} lastResult={lastResult} />
       <ListOfLastResults
         lastResult={returnThreeItems}
         updateResult={updateResult}
       />
+      <ListOfChatacters transList={result} />
     </>
   );
 };

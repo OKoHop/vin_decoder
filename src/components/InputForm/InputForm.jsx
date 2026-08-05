@@ -2,15 +2,17 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import ValidationSchema from './validationSchema';
 import getVinData from './getData';
 
-export const InputForm = ({ setMessage }) => {
+export const InputForm = ({ setMessage, addVinCode }) => {
   return (
     <>
       <Formik
         initialValues={{ vinCode: '' }}
         validationSchema={ValidationSchema}
-        onSubmit={async ({ vinCode }) => {
+        onSubmit={async ({ vinCode }, actions) => {
+          addVinCode(vinCode);
           const data = await getVinData(vinCode);
           setMessage(data.Message);
+          actions.resetForm();
         }}
       >
         <Form>

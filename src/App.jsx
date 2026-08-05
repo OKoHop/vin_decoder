@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home/Home';
 import { SharedLayout } from './components/SharedLayout/SharedLayout';
 import { Variabels } from './pages/Variabels/Variabels';
+import { VariabelsPage } from './pages/VariabelsPage/VariabelsPage';
 
 export const App = () => {
   return (
@@ -9,7 +10,7 @@ export const App = () => {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route path="variabels" element={<Variabels />} />
-        <Route path="variabels/:variabelsId" />
+        <Route path="variabels/:variabelsId" element={<VariabelsPage />} />
       </Route>
     </Routes>
   );

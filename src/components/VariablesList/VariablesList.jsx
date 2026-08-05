@@ -1,5 +1,6 @@
 import { VariablesItem } from './VariablesItem';
 import { nanoid } from 'nanoid';
+import { Link } from 'react-router-dom';
 
 export const VariablesList = ({ variables }) => {
   return (
@@ -7,7 +8,9 @@ export const VariablesList = ({ variables }) => {
       {variables.map(item => {
         return (
           <li key={nanoid()}>
-            <VariablesItem item={item} />
+            <Link to={`/variabels/${item.ID}`} state={item}>
+              <VariablesItem item={item} />
+            </Link>
           </li>
         );
       })}

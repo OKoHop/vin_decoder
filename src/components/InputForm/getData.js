@@ -23,3 +23,14 @@ export const getVariablesData = async () => {
     console.log(err);
   }
 };
+
+export const getVariableData = async variabelid => {
+  try {
+    const response = await axios.get(
+      `/vehicles/GetVehicleVariableValuesList/${variabelid}`
+    );
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

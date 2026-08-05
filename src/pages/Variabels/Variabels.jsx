@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getVariablesData } from '../../components/InputForm/getData';
-import { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 import { VariablesList } from '../../components/VariablesList/VariablesList';
+
+toast.success('Successfully!', { duration: 4000 });
 
 export const Variabels = () => {
   const [variables, setVariables] = useState([]);
@@ -15,7 +17,6 @@ export const Variabels = () => {
         const data = await getVariablesData();
 
         setVariables(data.Results);
-        console.log(data.Results);
       } catch (err) {
         console.warn(err);
       } finally {

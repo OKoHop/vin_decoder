@@ -1,6 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import ValidationSchema from './validationSchema';
-import getVinData from './getData';
+import { getVinData } from './getData';
 
 export const InputForm = ({ setMessage, addVinCode, setResult }) => {
   return (

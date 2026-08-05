@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InputForm } from '../../components/InputForm/InputForm';
 import { Message } from '../../components/Message/Message';
 import { ListOfLastResults } from '../../components/ListOfLastResults/ListOfLastResults';
-import getVinData from '../../components/InputForm/getData';
+import { getVinData } from '../../components/InputForm/getData';
 import { ListOfChatacters } from '../../components/ListOfCharecters/ListOfChatacters';
 
 export const Home = () => {

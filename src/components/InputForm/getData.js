@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://vpic.nhtsa.dot.gov/api';
 
-const getVinData = async vinCode => {
+export const getVinData = async vinCode => {
   try {
     const response = await axios.get(
       `/vehicles/decodevin/${vinCode}?format=json`
@@ -13,4 +13,13 @@ const getVinData = async vinCode => {
   }
 };
 
-export default getVinData;
+export const getVariablesData = async () => {
+  try {
+    const response = await axios.get(
+      '/vehicles/getvehiclevariablelist?format=json'
+    );
+    return response.data;
+  } catch (err) {
+    console.log(err);
+  }
+};

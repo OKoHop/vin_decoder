@@ -3,7 +3,6 @@ import { getVariablesData } from '../../components/InputForm/getData';
 import toast, { Toaster } from 'react-hot-toast';
 import { VariablesList } from '../../components/VariablesList/VariablesList';
 import { StyledH2 } from '../Home/Home.styled';
-toast.success('Successfully!', { duration: 4000 });
 
 export const Variabels = () => {
   const [variables, setVariables] = useState([]);
@@ -17,6 +16,7 @@ export const Variabels = () => {
         const data = await getVariablesData();
 
         setVariables(data.Results);
+        toast.success('Successfully!', { duration: 1000 });
       } catch (err) {
         console.warn(err);
       } finally {
@@ -32,7 +32,13 @@ export const Variabels = () => {
       <div className="container">
         <StyledH2>All variables info</StyledH2>
         {isLoading ? (
-          <Toaster position="top-center" reverseOrder={false} />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+              duration: 2000,
+            }}
+          />
         ) : (
           <VariablesList variables={variables} />
         )}

@@ -34,7 +34,7 @@
 ## 🚀 Запуск проєкта 
 
 ```bash
-git clone https://github.com/username/project.git
+git clone https://github.com/OKoHop/vin_decoder.git
 
 cd project
 

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { InputForm } from '../../components/InputForm/InputForm';
 import { Message } from '../../components/Message/Message';
 import { ListOfLastResults } from '../../components/ListOfLastResults/ListOfLastResults';
-import { getVinData } from '../../components/InputForm/getData';
 import { ListOfChatacters } from '../../components/ListOfCharecters/ListOfChatacters';
 import { StyledH2, StyledH3 } from './Home.styled';
 
@@ -11,17 +10,19 @@ export const Home = () => {
   const [lastResult, setLastResult] = useState([]);
   const [result, setResult] = useState([]);
 
-  const addVinCode = newVinCode => {
-    setLastResult(prevstate => [newVinCode, ...prevstate]);
-  };
-
-  const updateResult = async vinCode => {
-    const data = await getVinData(vinCode);
-    console.log(data);
-    setLastResult(prevstate => [vinCode, ...prevstate]);
+  const updateResult = vinCode => {
+    setLastResult(prevstate => [vinCode, ...prevstate].slice(0, 3));
   };
 
   const returnThreeItems = lastResult.slice(0, 3);
+
+  const addItem = vinCode => {
+    setLastResult(prev => {
+      const filtered = prev.filter(item => item !== vinCode);
+
+      return [vinCode, ...filtered];
+    });
+  };
 
   return (
     <main>
@@ -29,7 +30,7 @@ export const Home = () => {
         <StyledH2>Check your VIN Code</StyledH2>
         <InputForm
           setMessage={setMessage}
-          addVinCode={addVinCode}
+          addVinCode={addItem}
           setResult={setResult}
         />
         <Message message={message} lastResult={lastResult} />

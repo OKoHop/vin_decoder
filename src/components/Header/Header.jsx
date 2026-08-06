@@ -1,14 +1,14 @@
-import { StyledNav, StyledNavLink } from './Header.styled';
+import { StyledNav, StyledNavLink, StyledHeader } from './Header.styled';
 
 export const Header = () => {
   return (
-    <header>
+    <StyledHeader>
       <div className="container">
         <StyledNav>
           <StyledNavLink to="/">Home</StyledNavLink>
           <StyledNavLink to="/variabels">Variabels</StyledNavLink>
         </StyledNav>
       </div>
-    </header>
+    </StyledHeader>
   );
 };

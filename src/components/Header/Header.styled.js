@@ -15,3 +15,8 @@ export const StyledNavLink = styled(NavLink)`
     color: #4f46e5;
   }
 `;
+
+export const StyledHeader = styled.header`
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;

@@ -15,9 +15,9 @@ export const InputForm = ({ setMessage, addVinCode, setResult }) => {
         initialValues={{ vinCode: '' }}
         validationSchema={ValidationSchema}
         onSubmit={async ({ vinCode }, actions) => {
-          addVinCode(vinCode);
-          const data = await getVinData(vinCode);
-          console.log(data);
+          const upperVinCode = vinCode.toUpperCase();
+          addVinCode(upperVinCode);
+          const data = await getVinData(upperVinCode);
           setMessage(data.Message);
           setResult(data.Results);
           actions.resetForm();

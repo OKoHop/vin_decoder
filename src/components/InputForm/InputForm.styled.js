@@ -5,7 +5,8 @@ import { media } from '../../styles/breakpoints';
 export const StyledField = styled(Field)`
   border-radius: 10px;
   margin-bottom: 1em;
-
+  border: 1px solid black;
+  padding: 5px;
   &::placeholder {
     text-align: center;
   }
@@ -13,7 +14,7 @@ export const StyledField = styled(Field)`
   @media ${media.tablet} {
     margin-bottom: 2em;
     width: 200px;
-    height: 20px;
+    height: 30px;
   }
 
   @media ${media.desktop} {
@@ -47,13 +48,13 @@ export const StyledButton = styled.button`
 
   @media ${media.tablet} {
     margin: 2em 2em;
-    width: 200px;
-    height: 20px;
+    width: 211px;
+    height: 42px;
   }
 
   @media ${media.desktop} {
     margin: 3em 3em;
-    width: 400px;
-    height: 30px;
+    width: 411px;
+    height: 41px;
   }
 `;

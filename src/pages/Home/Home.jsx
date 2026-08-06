@@ -4,7 +4,7 @@ import { Message } from '../../components/Message/Message';
 import { ListOfLastResults } from '../../components/ListOfLastResults/ListOfLastResults';
 import { getVinData } from '../../components/InputForm/getData';
 import { ListOfChatacters } from '../../components/ListOfCharecters/ListOfChatacters';
-import { StyledH2 } from './Home.styled';
+import { StyledH2, StyledH3 } from './Home.styled';
 
 export const Home = () => {
   const [message, setMessage] = useState('');
@@ -33,12 +33,13 @@ export const Home = () => {
           setResult={setResult}
         />
         <Message message={message} lastResult={lastResult} />
-        <h3>List of last queries</h3>
+
+        {lastResult.length > 0 && <StyledH3>List of last queries</StyledH3>}
         <ListOfLastResults
           lastResult={returnThreeItems}
           updateResult={updateResult}
         />
-        <h3>List of charecters by VIN</h3>
+        {result.length > 0 && <StyledH3>List of charecters by VIN</StyledH3>}
         <ListOfChatacters transList={result} />
       </div>
     </main>

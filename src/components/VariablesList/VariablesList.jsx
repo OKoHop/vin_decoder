@@ -1,19 +1,19 @@
 import { VariablesItem } from './VariablesItem';
 import { nanoid } from 'nanoid';
-import { Link } from 'react-router-dom';
+import { StyleLink, StyledOl } from './VarList.styled';
 
 export const VariablesList = ({ variables }) => {
   return (
-    <ul>
+    <StyledOl>
       {variables.map(item => {
         return (
           <li key={nanoid()}>
-            <Link to={`/variabels/${item.ID}`} state={item}>
+            <StyleLink to={`/variabels/${item.ID}`} state={item}>
               <VariablesItem item={item} />
-            </Link>
+            </StyleLink>
           </li>
         );
       })}
-    </ul>
+    </StyledOl>
   );
 };

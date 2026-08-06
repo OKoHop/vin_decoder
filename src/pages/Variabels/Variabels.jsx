@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getVariablesData } from '../../components/InputForm/getData';
 import toast, { Toaster } from 'react-hot-toast';
 import { VariablesList } from '../../components/VariablesList/VariablesList';
-
+import { StyledH2 } from '../Home/Home.styled';
 toast.success('Successfully!', { duration: 4000 });
 
 export const Variabels = () => {
@@ -28,13 +28,15 @@ export const Variabels = () => {
   }, [variables]);
 
   return (
-    <>
-      <h2>This is variables page</h2>
-      {isLoading ? (
-        <Toaster position="top-center" reverseOrder={false} />
-      ) : (
-        <VariablesList variables={variables} />
-      )}
-    </>
+    <main>
+      <div className="container">
+        <StyledH2>All variables info</StyledH2>
+        {isLoading ? (
+          <Toaster position="top-center" reverseOrder={false} />
+        ) : (
+          <VariablesList variables={variables} />
+        )}
+      </div>
+    </main>
   );
 };

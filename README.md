@@ -45,6 +45,7 @@ npm run dev
 ```
 ## 📁 Структура проєкта
 
+```
 src/
  ├── components/
  ├── pages/
@@ -52,6 +53,7 @@ src/
  └── App.jsx
  └── main.jsx
  └── index.css
+```
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Styled Components](https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white)

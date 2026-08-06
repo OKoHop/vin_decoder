@@ -1,11 +1,11 @@
-import { Formik } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import ValidationSchema from './validationSchema';
-import { getVinData } from './getData';
+import { getVinData } from '../../api/getData';
 import {
   StyledField,
   StyledForm,
-  StyledErrMsg,
   StyledButton,
+  StyledErrMsg,
 } from './InputForm.styled';
 
 export const InputForm = ({ setMessage, addVinCode, setResult }) => {
@@ -29,7 +29,7 @@ export const InputForm = ({ setMessage, addVinCode, setResult }) => {
             name="vinCode"
             placeholder="Enter VIN code"
           />
-          <StyledErrMsg name="vinCode" />
+          <ErrorMessage name="vinCode" component={StyledErrMsg} />
           <StyledButton type="submit">Check VIN</StyledButton>
         </StyledForm>
       </Formik>

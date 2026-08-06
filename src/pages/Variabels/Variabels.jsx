@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getVariablesData } from '../../components/InputForm/getData';
+import { getVariablesData } from '../../api/getData';
 import toast from 'react-hot-toast';
 import { VariablesList } from '../../components/VariablesList/VariablesList';
 import { StyledH2 } from '../Home/Home.styled';

@@ -2,16 +2,30 @@ import { useState } from 'react';
 import { InputForm } from '../../components/InputForm/InputForm';
 import { Message } from '../../components/Message/Message';
 import { ListOfLastResults } from '../../components/ListOfLastResults/ListOfLastResults';
-import { ListOfChatacters } from '../../components/ListOfCharecters/ListOfChatacters';
+import { ListOfChatacters } from '../../components/ListOfCharecters/ListOfCharacters';
 import { StyledH2, StyledH3 } from './Home.styled';
+import { getVinData } from '../../api/getData';
 
 export const Home = () => {
   const [message, setMessage] = useState('');
   const [lastResult, setLastResult] = useState([]);
   const [result, setResult] = useState([]);
 
-  const updateResult = vinCode => {
-    setLastResult(prevstate => [vinCode, ...prevstate].slice(0, 3));
+  const updateResult = async vinCode => {
+    try {
+      const data = await getVinData(vinCode);
+
+      setMessage(data.Message);
+      setResult(data.Results);
+
+      setLastResult(prev => {
+        const filtered = prev.filter(item => item !== vinCode);
+
+        return [vinCode, ...filtered];
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const returnThreeItems = lastResult.slice(0, 3);

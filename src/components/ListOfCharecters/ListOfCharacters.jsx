@@ -6,7 +6,8 @@ export const ListOfChatacters = ({ transList }) => {
     <StyledUl>
       {transList.map(item => {
         return (
-          item.Value !== null && (
+          item.Value !== null &&
+          item.Value.length > 0 && (
             <li key={nanoid()}>
               {item.Variable}: {item.Value}
             </li>

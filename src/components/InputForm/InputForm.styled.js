@@ -1,4 +1,4 @@
-import { Field, ErrorMessage, Form } from 'formik';
+import { Field, Form } from 'formik';
 import { styled } from 'styled-components';
 import { media } from '../../styles/breakpoints';
 
@@ -33,7 +33,7 @@ export const StyledForm = styled(Form)`
   padding: auto;
 `;
 
-export const StyledErrMsg = styled(ErrorMessage)`
+export const StyledErrMsg = styled.div`
   color: red;
 `;
 

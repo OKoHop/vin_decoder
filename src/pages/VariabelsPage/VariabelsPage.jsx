@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import arrowleft from '../../../public/arrow-left.svg';
+import arrowleft from '../../../assets/arrow-left.svg';
 import { StyledLink } from './VarPage.style';
 
 export const VariabelsPage = () => {

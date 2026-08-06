@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getVariablesData } from '../../components/InputForm/getData';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { VariablesList } from '../../components/VariablesList/VariablesList';
 import { StyledH2 } from '../Home/Home.styled';
+import { Oval } from 'react-loader-spinner';
+import { LoaderWrapper } from './Variabels.style';
 
 export const Variabels = () => {
   const [variables, setVariables] = useState([]);
@@ -14,9 +16,8 @@ export const Variabels = () => {
       try {
         setIsLoading(true);
         const data = await getVariablesData();
-
         setVariables(data.Results);
-        toast.success('Successfully!', { duration: 1000 });
+        toast.success('Data loaded!', { duration: 1000 });
       } catch (err) {
         console.warn(err);
       } finally {
@@ -32,16 +33,22 @@ export const Variabels = () => {
       <div className="container">
         <StyledH2>All variables info</StyledH2>
         {isLoading ? (
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-            toastOptions={{
-              duration: 2000,
-            }}
-          />
+          <LoaderWrapper>
+            <Oval
+              height={80}
+              width={80}
+              color="#4fa94d"
+              visible={true}
+              ariaLabel="oval-loading"
+              secondaryColor="#4fa94d"
+              strokeWidth={2}
+              strokeWidthSecondary={2}
+            />
+          </LoaderWrapper>
         ) : (
           <VariablesList variables={variables} />
         )}
+        <VariablesList variables={variables} />
       </div>
     </main>
   );

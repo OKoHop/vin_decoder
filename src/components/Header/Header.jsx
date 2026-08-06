@@ -1,12 +1,14 @@
-import { NavLink } from 'react-router-dom';
+import { StyledNav, StyledNavLink } from './Header.styled';
 
 export const Header = () => {
   return (
     <header>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/variabels">Variabels</NavLink>
-      </nav>
+      <div className="container">
+        <StyledNav>
+          <StyledNavLink to="/">Home</StyledNavLink>
+          <StyledNavLink to="/variabels">Variabels</StyledNavLink>
+        </StyledNav>
+      </div>
     </header>
   );
 };

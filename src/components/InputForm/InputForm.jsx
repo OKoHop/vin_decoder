@@ -1,6 +1,12 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik } from 'formik';
 import ValidationSchema from './validationSchema';
 import { getVinData } from './getData';
+import {
+  StyledField,
+  StyledForm,
+  StyledErrMsg,
+  StyledButton,
+} from './InputForm.styled';
 
 export const InputForm = ({ setMessage, addVinCode, setResult }) => {
   return (
@@ -17,11 +23,15 @@ export const InputForm = ({ setMessage, addVinCode, setResult }) => {
           actions.resetForm();
         }}
       >
-        <Form>
-          <Field id="vinCode" name="vinCode" placeholder="Enter VIN code" />
-          <ErrorMessage name="vinCode" />
-          <button type="submit">Check VIN</button>
-        </Form>
+        <StyledForm>
+          <StyledField
+            id="vinCode"
+            name="vinCode"
+            placeholder="Enter VIN code"
+          />
+          <StyledErrMsg name="vinCode" />
+          <StyledButton type="submit">Check VIN</StyledButton>
+        </StyledForm>
       </Formik>
     </>
   );

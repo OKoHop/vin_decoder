@@ -1,8 +1,9 @@
 import { nanoid } from 'nanoid';
+import { StyledUl } from '../ListOfLastResults/List.styled';
 
 export const ListOfChatacters = ({ transList }) => {
   return (
-    <ul>
+    <StyledUl>
       {transList.map(item => {
         return (
           item.Value !== null && (
@@ -12,6 +13,6 @@ export const ListOfChatacters = ({ transList }) => {
           )
         );
       })}
-    </ul>
+    </StyledUl>
   );
 };

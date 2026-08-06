@@ -1,17 +1,18 @@
 import { nanoid } from 'nanoid';
+import { StyledUl, StyledListBtn } from './List.styled';
 
 export const ListOfLastResults = ({ lastResult, updateResult }) => {
   return (
-    <ul>
+    <StyledUl>
       {lastResult.map(item => {
         return (
           <li key={nanoid()}>
-            <button type="button" onClick={() => updateResult(item)}>
+            <StyledListBtn type="button" onClick={() => updateResult(item)}>
               {item}
-            </button>
+            </StyledListBtn>
           </li>
         );
       })}
-    </ul>
+    </StyledUl>
   );
 };

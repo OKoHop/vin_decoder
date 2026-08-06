@@ -42,9 +42,9 @@ npm install
 
 npm run dev
 
+```
 ## 📁 Структура проєкта
 
-```
 src/
  ├── components/
  ├── pages/
